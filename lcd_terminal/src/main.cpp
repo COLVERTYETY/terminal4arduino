@@ -69,7 +69,6 @@ void setup(void)
 
   // init computer serial
   Serial.begin(9600);
-  Serial1.begin(250000);
 
   // init tft display
   uint16_t ID = tft.readID();
@@ -104,8 +103,8 @@ void loop(void)
     }
   }
 
-  if (Serial1.available()){
-    char c = Serial1.read();
+  if (Serial.available()){
+    char c = Serial.read();
     Serial.write(c);
     if ( c >= 0 )
     {
@@ -305,22 +304,22 @@ void loop(void)
               }
               tft.setTextColor(current_fg, current_bg);
             break;
-            case 'A': // up
+            case 'A':
               tft.setCursor(tft.getCursorX(), tft.getCursorY()-ctrlseq_p[0]*10);
             break;
-            case 'B': // down
+            case 'B':
               tft.setCursor(tft.getCursorX(), tft.getCursorY()+ctrlseq_p[0]*10);
             break;
-            case 'C': // right
+            case 'C':
               tft.setCursor(tft.getCursorX()+6*(int)ctrlseq_p[0], tft.getCursorY());
             break;
-            case 'D': // left
+            case 'D':
               tft.setCursor(tft.getCursorX()-6*(int)ctrlseq_p[0], tft.getCursorY());
             break;
-            case 'S': // vertical scroll  -- doesnt work
+            case 'S':
               tft.vertScroll(tft.getCursorX(), tft.getCursorY(), ctrlseq_p[0]*10);
             break;
-            case 'T': // vertical scroll  -- doesnt work
+            case 'T':
               tft.vertScroll(tft.getCursorX(), tft.getCursorY(), -ctrlseq_p[0]*10);
             break;
             default:

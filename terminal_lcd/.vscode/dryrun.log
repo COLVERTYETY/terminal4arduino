@@ -1,6 +1,0 @@
-make --dry-run --always-make --keep-going --print-directory
-make: Entering directory '/home/nicolas/dvic/arduino_terminal/terminal_lcd'
-make: Leaving directory '/home/nicolas/dvic/arduino_terminal/terminal_lcd'
- 
-make: *** No targets specified and no makefile found.  Stop.
-
